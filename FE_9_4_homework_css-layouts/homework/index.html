@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS Layouts</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet preload">
+</head>
+<body>
+<header class="header">
+    <div class="wrapper">
+        <div class="top-navigation">
+            <a href="/" class="logo">BLACK & WHITE</a>
+            <nav>
+                <ul class="main-navigation">
+                    <li><a href="/" class="main-navigation__item">Home</a></li>
+                    <li><a href="/about" class="main-navigation__item">About</a></li>
+                    <li><a href="/vacancies" class="main-navigation__item">Vacancies</a></li>
+                    <li><a href="/shop" class="main-navigation__item">Shop</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="brand">
+            <h1 class="brand__header">BLACK <span class="brand__since--amp">&</span> WHITE</h1>
+            <p class="brand__since">An Original Brand Since 1965</p>
+        </div>
+        <a href="#" class="show-more-btn">Show More</a>
+    </div>
+</header>
+<main>
+    <section class="about-section">
+        <div class="wrapper">
+            <div class="about-section__content">
+                <h2 class="about-section__header">Proper checks are now part of the article. Added&nbsp;<strong>information about</strong> the block value.</h2>
+                <p class="about-section__text">If you're a regular reader here at CSS-Tricks, chances are good you know a bit about web fonts.
+                    You may even know a few useful tricks to control how fonts load, but have you used the CSS font-display property?
+                    If all of this is new to you, no sweat.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="featured-articles">
+        <div class="wrapper">
+            <h2 class="featured-articles__header">Read some of our <strong>featured articles</strong></h2>
+            <article class="featured-article">
+                <div class="featured-article__image-wrapper">
+                    <a href="#"  title="Read more!">
+                        <img src="img/sample.jpg" alt="Alt text here">
+                        <h2 class="featured-article__header">Januari'15 <strong>South France</strong></h2>
+                    </a>
+                    <button class="featured-article__like" title="Like!">172</button>
+                </div>
+                <p class="featured-article__intro">Font loading is no exception to this rule.
+                    When a browser requests a font asset from a web server, any elements with styles invoking that font
+                    is hidden until the font asset has downloaded.</p>
+            </article>
+            <article class="featured-article">
+                <div class="featured-article__image-wrapper">
+                    <a href="#"  title="Read more!">
+                        <img src="img/sample3.jpg" alt="Alt text here">
+                        <h2 class="featured-article__header">Januari'15 <strong>South France</strong></h2>
+                    </a>
+                    <button class="featured-article__like" title="Like!">172</button>
+                </div>
+                <p class="featured-article__intro">This behavior is there to "save" us from seeing text initially render
+                    in a system font, only to swap to the custom typeface once it has loaded. That behavior is known as
+                    the Flash of Unstyled Text, or FOUT.</p>
+            </article>
+            <article class="featured-article">
+                <div class="featured-article__image-wrapper">
+                    <a href="#"  title="Read more!">
+                        <img src="img/sample.jpg" alt="Alt text here">
+                        <h2 class="featured-article__header">Januari'15 <strong>South France</strong></h2>
+                    </a>
+                    <button class="featured-article__like" title="Like!">20</button>
+                </div>
+                <p class="featured-article__intro">FOIT may sound preferable over FOUT, but FOIT has repercussions for
+                    users on slow connections. By default, most browsers will hide text for up to 3 seconds until
+                    displaying text in a fallback system typeface while waiting for a font to load.</p>
+            </article>
+            <article class="featured-article">
+                <div class="featured-article__image-wrapper">
+                    <a href="#"  title="Read more!">
+                        <img src="img/sample3.jpg" alt="Alt text here">
+                        <h2 class="featured-article__header">Januari'15 <strong>South France</strong></h2>
+                    </a>
+                    <button class="featured-article__like" title="Like!">150</button>
+                </div>
+                <p class="featured-article__intro">We style the document to use system fonts by default, and then,
+                    when we detect that custom fonts have loaded, we add a CSS class to the document which in turn
+                    applies the custom typefaces to the document.</p>
+            </article>
+            <section class="newsletter-subscription">
+                <h2 class="newsletter-subscription__header">Subscribe to our <strong>newspletter</strong></h2>
+                <form action="/subscribtion" method="post" class="newsletter-subscription__form">
+                    <input type="email" name="email" class="newsletter-subscription__email" placeholder="Enter your e-mail address" required>
+                    <input type="submit" class="newsletter-subscription__btn" value="Subscribe">
+                </form>
+            </section>
+        </div>
+    </section>
+</main>
+<footer>
+    <div class="wrapper">
+        <section class="footer-info">
+            <div class="footer__about">
+                <h4 class="footer-info__header">Black & White</h4>
+                <p class="footer__text">When we control font loading in JavaScript, this often is the behavior we're after.
+                    We want to be sure the text is visible by default.</p>
+            </div>
+            <div class="footer__last-tweet">
+                <h4 class="footer-info__header">Last Tweet</h4>
+                <blockquote class="footer__last-tweet-text">Only reason why this is not certain is that it’s contingent
+                    on a shareholder vote.</blockquote>
+                <p class="footer__last-tweet-time">3 hours ago</p>
+            </div>
+            <div class="footer__contact">
+                <h4 class="footer-info__header">Contact</h4>
+                <p class="footer__text"><a href="https://github.com/olehmelnyk">github.com/olehmelnyk</a></p>
+                <p class="footer__text"><a href="https://www.google.com/maps/">182 AB Your Street Name</a></p>
+                <p class="footer__text"><a href="mailto:oleh.melnyk@gmail.com">oleh.melnyk@gmail.com</a></p>
+                <p class="footer__text"><a href="tel:+380631215555">+38 (063) 121 5555</a></p>
+            </div>
+            <div class="footer__newsletter">
+                <h4 class="footer-info__header">Newsletter</h4>
+                <p class="footer__text">Put Black&White in your InBox:</p>
+                <form action="/subscribtion" method="post" class="newsletter-subscription__form--footer">
+                    <input type="email" name="email" class="newsletter-subscription__email--footer" placeholder="Enter your e-mail address" required>
+                    <input type="submit" class="newsletter-subscription__btn--footer" value="Subscribe">
+                </form>
+            </div>
+        </section>
+        <div class="footer__bottom">
+            <p class="footer__copyright">&copy; 2015 Ruben Stom</p>
+            <ul class="footer__navigation">
+                <li><a href="/" class="footer__navigation__item">Home</a></li>
+                <li><a href="/about" class="footer__navigation__item">About</a></li>
+                <li><a href="/vacancies" class="footer__navigation__item">Vacancies</a></li>
+                <li><a href="/shop" class="footer__navigation__item">Shop</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
