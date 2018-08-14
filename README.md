@@ -6,7 +6,7 @@ Front-end University Program @ EPAM
 3. [Preprocessors](https://olehmelnyk.github.io/fl-9/FE_9_3_homework_preprocessors/homework)
 4. [CSS Layouts](https://olehmelnyk.github.io/fl-9/FE_9_4_homework_css-layouts/homework)
 5. [Responsive](https://olehmelnyk.github.io/fl-9/FE_9_5_homework_responsive/homework/src)
-6. [Intro to JS - part 1](https://olehmelnyk.github.io/fl-9/FE_9_6_homework_js-intro/homework/src/task1.html), [Intro to JS - part 2](https://olehmelnyk.github.io/fl-9/FE_9_6_homework_js-intro/homework/src/task2.html)
+6. [Intro to JS - part 1](https://olehmelnyk.github.io/fl-9/FE_9_6_homework_js-intro/homework/src/task1.htm), [Intro to JS - part 2](https://olehmelnyk.github.io/fl-9/FE_9_6_homework_js-intro/homework/src/task2.html)
 7. Control flow
 8. Functions
 9. Data types
