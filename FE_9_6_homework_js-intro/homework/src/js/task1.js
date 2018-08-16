@@ -8,14 +8,18 @@ Price with discount: ${+priceWithDiscount.toFixed(2)}
 Saved: ${+saved.toFixed(2)}
 `;
 
+let output;
+
 if (validateInput(amount) || validateInput(discount) || discount > 100) {
-    console.log('Invalid data');
+    output = 'Invalid data';
 } else {
     const saved = amount / 100 * discount;
     const priceWithDiscount = amount - saved;
-    console.log(outputTemplate(amount, discount, priceWithDiscount, saved));
+    output = outputTemplate(amount, discount, priceWithDiscount, saved);
 }
 
 function validateInput(number) {
     return isNaN(number) || typeof number !== 'number' || number < 0;
 }
+
+console.log(output);
