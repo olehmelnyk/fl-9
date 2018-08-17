@@ -38,7 +38,7 @@ if(confirm('Do you want to play a game?')){
             const userGuess = +prompt(
                 gameInfoTemplate(
                     gameData.maxRangeValue,
-                    ++config.totalAttempts - currentAttempt,
+                    config.totalAttempts - currentAttempt,
                     gameData.totalPrize,
                     gameData.prize[currentAttempt]
                 )
@@ -58,7 +58,6 @@ if(confirm('Do you want to play a game?')){
                 alert(`Thank you for a game. Your prize is: ${gameData.totalPrize}$`);
             }
         }
-
     } while (playAgain);
 }
 
