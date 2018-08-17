@@ -67,4 +67,22 @@ alert('You did not become a millionaire, but can.');
 
 function getRandomNumber(maxValue) {
     return Math.floor(Math.random() * ++maxValue);
+<<<<<<< HEAD
 }
+=======
+}
+
+function updateTotalPrize(currentAttempt) {
+    gameData.totalPrize += gameData.prize[currentAttempt];
+}
+
+function updatePrizes() {
+    gameData.prize['1'] *= config.prizeMultiplier;
+    gameData.prize['2'] *= config.prizeMultiplier;
+    gameData.prize['3'] *= config.prizeMultiplier;
+}
+
+function updateMaxRange() {
+    gameData.maxRangeValue *= config.rangeMultiplier;
+}
+>>>>>>> 55741beb8124793441dba432f9b2330cf070b9c6
