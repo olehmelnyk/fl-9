@@ -5,7 +5,7 @@ if (login === 'User') {
 
     if (password === 'SuperUser') {
         alert(new Date().getHours() < 20 ? 'Good day!' : 'Good evening!');
-    } else if (login === '' || login === null) {
+    } else if (password === '' || password === null) {
         alert('Canceled.');
     } else {
         alert('Wrong password');
