@@ -22,7 +22,9 @@ const gameData = {
 // flag, that determines, if user wants to continue
 let playAgain = false;
 
-if(confirm('Do you want to play a game?')){
+confirm('Do you want to play a game?') ? playGame() : alert('You did not become a millionaire, but can.');
+
+function playGame() {
     do {
         // reset flag to the default value
         playAgain = false;
@@ -34,16 +36,16 @@ if(confirm('Do you want to play a game?')){
             currentAttempt <= config.totalAttempts;
             currentAttempt++, currentPrize = Math.floor(currentPrize / 2)
         ) {
-            const userGuess = +prompt(
+            const userGuess = parseInt(prompt(
                 gameInfoTemplate(
                     gameData.maxRangeValue,
                     config.totalAttempts - currentAttempt,
                     gameData.totalPrize,
                     currentPrize
                 )
-            );
+            ));
 
-            if (userGuess === randomNumber) {
+            if (!isNaN(userGuess) && userGuess === randomNumber) {
                 gameData.totalPrize += currentPrize;
                 if(confirm(`
                     Congratulation! Your prize is: ${gameData.totalPrize}$ 
@@ -56,14 +58,15 @@ if(confirm('Do you want to play a game?')){
                     playAgain = true;
                     break;
                 }
+            } else if (isNaN(userGuess)) {
+                break; // user canceled guess input
             } else if (currentAttempt === config.totalAttempts) {
                 alert(`Thank you for a game. Your prize is: ${gameData.totalPrize}$`);
+                playAgain = confirm('Do you want to play again?');
             }
         }
     } while (playAgain);
 }
-
-alert('You did not become a millionaire, but can.');
 
 function getRandomNumber(maxValue) {
     return Math.floor(Math.random() * ++maxValue);
