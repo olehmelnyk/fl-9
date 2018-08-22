@@ -39,6 +39,7 @@ module.exports = {
 		"no-useless-computed-key": "error",
 		"no-useless-constructor": "error",
 		"no-var": "warn",
-		"no-unused-vars": "off"
+		"no-unused-vars": "off",
+        "no-undef": "off",
 	}
 };
