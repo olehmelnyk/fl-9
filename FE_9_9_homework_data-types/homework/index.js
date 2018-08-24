@@ -1,48 +1,36 @@
-function findType(param) {
-    return typeof param;
-}
+const findType = param => typeof param;
 
-function forEach(array, fn) {
+const forEach = (array, fn) => {
     for(let i = 0; i < array.length; i++) {
         fn(array[i]);
     }
-}
+};
 
-function map(array, fn) {
+const map = (array, fn) => {
     let newArray = [];
 
-    for(let i = 0; i < array.length; i++) {
-        newArray.push(fn(array[i]));
-    }
+    forEach(array, el => newArray.push(fn(el)));
 
     return newArray;
-}
+};
 
-function filter(array, fn) {
+const filter = (array, fn) => {
     let newArray = [];
 
-    for(let i = 0; i < array.length; i++) {
-        if(fn(array[i])){
-            newArray.push(array[i]);
+    forEach(array, el => {
+        if (fn(el)) {
+            newArray.push(el);
         }
-    }
+    });
 
     return newArray;
-}
+};
 
-function getAdultAppleLovers(array) {
-    let newArray = [];
+const getAdultAppleLovers = data => {
+    return map(filter(data, el => el.age > 18 && el.favoriteFruit === 'apple'), el => el.name);
+};
 
-    for(let i = 0; i < array.length; i++) {
-        if(array[i].age > 18 && array[i].favoriteFruit === 'apple') {
-            newArray.push(array[i].name);
-        }
-    }
-
-    return newArray;
-}
-
-function keys(obj) {
+const keys = obj => {
     let newArray = [];
 
     for(let key in obj) {
@@ -52,9 +40,9 @@ function keys(obj) {
     }
 
     return newArray;
-}
+};
 
-function values(obj) {
+const values = obj => {
     let newArray = [];
 
     for(let key in obj) {
@@ -64,10 +52,10 @@ function values(obj) {
     }
 
     return newArray;
-}
+};
 
-function showFormattedDate(date) {
+const showFormattedDate = (date) => {
     const shortMonthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
     return `It is ${date.getDate()} of ${shortMonthNames[date.getMonth()]}, ${date.getFullYear()}`;
-}
+};
