@@ -54,7 +54,7 @@ const values = obj => {
     return newArray;
 };
 
-const showFormattedDate = (date) => {
+const showFormattedDate = date => {
     const shortMonthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
     return `It is ${date.getDate()} of ${shortMonthNames[date.getMonth()]}, ${date.getFullYear()}`;
