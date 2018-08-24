@@ -4,7 +4,7 @@ function findType(param) {
 
 function forEach(array, fn) {
     for(let i = 0; i < array.length; i++) {
-         fn(array[i]);
+        fn(array[i]);
     }
 }
 
@@ -30,12 +30,12 @@ function filter(array, fn) {
     return newArray;
 }
 
-function getAdultAppleLovers(data) {
+function getAdultAppleLovers(array) {
     let newArray = [];
 
-    for(let i = 0; i < data.length; i++) {
-        if(data[i].age > 18 && data[i].favoriteFruit === 'apple') {
-            newArray.push(data[i].name);
+    for(let i = 0; i < array.length; i++) {
+        if(array[i].age > 18 && array[i].favoriteFruit === 'apple') {
+            newArray.push(array[i].name);
         }
     }
 
