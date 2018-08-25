@@ -26,9 +26,8 @@ const filter = (array, fn) => {
     return newArray;
 };
 
-const getAdultAppleLovers = data => {
-    return map(filter(data, el => el.age > 18 && el.favoriteFruit === 'apple'), el => el.name);
-};
+const getAdultAppleLovers = data => 
+    map(filter(data, el => el.age > 18 && el.favoriteFruit === 'apple'), el => el.name);
 
 const keys = obj => {
     let newArray = [];

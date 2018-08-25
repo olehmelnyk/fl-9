@@ -5,5 +5,5 @@ function reverseNumber(number) {
         .reverse()
         .join('');
 
-    return number < 0 ? -reversedNumber : reversedNumber;
+    return number > 0 ? reversedNumber : -reversedNumber;
 }
