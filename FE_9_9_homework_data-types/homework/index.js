@@ -18,7 +18,7 @@ const filter = (array, fn) => {
     let newArray = [];
 
     forEach(array, el => {
-        if (fn(el)) {
+        if(fn(el)) {
             newArray.push(el);
         }
     });
