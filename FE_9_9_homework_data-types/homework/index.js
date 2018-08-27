@@ -1,60 +1,73 @@
 const findType = param => typeof param;
 
 const forEach = (array, fn) => {
-    for(let i = 0; i < array.length; i++) {
-        fn(array[i]);
-    }
+  for (let i = 0; i < array.length; i++) {
+    fn(array[i]);
+  }
 };
 
 const map = (array, fn) => {
-    let newArray = [];
+  let newArray = [];
 
-    forEach(array, el => newArray.push(fn(el)));
+  forEach(array, el => newArray.push(fn(el)));
 
-    return newArray;
+  return newArray;
 };
 
 const filter = (array, fn) => {
-    let newArray = [];
+  let newArray = [];
 
-    forEach(array, el => {
-        if(fn(el)) {
-            newArray.push(el);
-        }
-    });
+  forEach(array, el => {
+    if (fn(el)) {
+      newArray.push(el);
+    }
+  });
 
-    return newArray;
+  return newArray;
 };
 
-const getAdultAppleLovers = data => 
-    map(filter(data, el => el.age > 18 && el.favoriteFruit === 'apple'), el => el.name);
+const getAdultAppleLovers = data =>
+    map(filter(data, el => el.age > 18 && el.favoriteFruit === 'apple'),
+        el => el.name);
 
 const keys = obj => {
-    let newArray = [];
+  let newArray = [];
 
-    for(let key in obj) {
-        if(obj.hasOwnProperty(key)) {
-            newArray.push(key);
-        }
+  for (let key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      newArray.push(key);
     }
+  }
 
-    return newArray;
+  return newArray;
 };
 
 const values = obj => {
-    let newArray = [];
+  let newArray = [];
 
-    for(let key in obj) {
-        if(obj.hasOwnProperty(key)) {
-            newArray.push(obj[key]);
-        }
+  for (let key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      newArray.push(obj[key]);
     }
+  }
 
-    return newArray;
+  return newArray;
 };
 
 const showFormattedDate = date => {
-    const shortMonthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const shortMonthNames = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec'];
 
-    return `It is ${date.getDate()} of ${shortMonthNames[date.getMonth()]}, ${date.getFullYear()}`;
+  return `It is ${date.getDate()} of ${shortMonthNames[date.getMonth()]}, ${date.getFullYear()}`;
 };
