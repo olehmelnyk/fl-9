@@ -21,7 +21,7 @@ function userCard(key) {
     },
 
     takeCredits(amount) {
-      if (transactionLimit && balance >= amount) {
+      if (amount <= transactionLimit && amount <= balance) {
         balance -= amount;
 
         historyLogs.push({
