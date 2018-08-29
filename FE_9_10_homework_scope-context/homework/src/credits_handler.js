@@ -21,18 +21,13 @@ function userCard(key) {
     },
 
     takeCredits(amount) {
-      if (amount <= transactionLimit && amount <= balance) {
-        balance -= amount;
+      balance -= amount;
 
-        historyLogs.push({
-          operationType: 'Withdrawal of credits',
-          credits: amount,
-          operationTime: new Date().toLocaleString('en-GB')
-        });
-      } else {
-        console.log(`Error: Transaction limit and remaining balance should be \
-greater than credits you want to take.`);
-      }
+      historyLogs.push({
+        operationType: 'Withdrawal of credits',
+        credits: amount,
+        operationTime: new Date().toLocaleString('en-GB')
+      });
     },
 
     setTransactionLimit(amount) {
@@ -47,24 +42,15 @@ greater than credits you want to take.`);
 
     transferCredits(amount, card) {
       const amountPlusTaxes = amount * tax / hundredPercent + amount;
-      const balanceExceeded = amountPlusTaxes > balance;
-      const transactionLimitExceeded = amountPlusTaxes > transactionLimit;
 
-      if (balanceExceeded) {
+      if (amountPlusTaxes > balance) {
         console.log(`Error: You can't transfer credits - balance exceeded.`);
-      } else if (transactionLimitExceeded) {
+      } else if (amountPlusTaxes > transactionLimit) {
         console.log(
-            `Error: You can't transfer credits - transaction limit exceeded`);
+            `Error: You can't transfer credits - transaction limit exceeded.`);
       } else {
         this.takeCredits(amountPlusTaxes);
         card.putCredits(amount);
-
-        // should we log transfer info in history log?
-        historyLogs.push({
-          operationType: `Credit transfer between cards`,
-          credits: amount,
-          operationTime: new Date().toLocaleString('en-GB')
-        });
       }
     }
   };
@@ -80,7 +66,7 @@ class UserAccount {
   addCard() {
     if (this.cards.length < this.MAX_CARDS) {
       this.cards.push(userCard(this.cards.length + 1));
-    } else { // should we add this?
+    } else {
       console.log(`Error: You've reached maximum amount of cards!`);
     }
   }
