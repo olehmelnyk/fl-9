@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+button {
+    border: 0;
+    background: none;
+    padding: 0;
+    margin-bottom: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+::placeholder {
+    color: #bbb;
+}
+
+.todo-cat {
+    width: 500px;
+    height: 475px;
+    border: 1px solid #000;
+    padding: 10px;
+    margin: 30px auto;
+    position: relative;
+}
+
+.todo-cat__header {
+    text-align: center;
+    font-weight: normal;
+}
+
+.todo-cat__max-list-limit-msg {
+    text-align: center;
+    display: none;
+}
+
+.todo-cat__add-new {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #000;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    height: 40px;
+}
+
+.todo-cat__add-new-input {
+    flex-grow: 1;
+    margin-right: 10px;
+    border: 1px solid #000;
+    padding: 2px 5px;
+    font-size: 12px;
+}
+
+.todo-cat__add-new-btn {
+    height: 20px;
+}
+
+.todo-cat__list {
+    list-style: none;
+}
+
+.todo-cat__list-item {
+    display: flex;
+    align-items: center;
+    cursor: move;
+    position: relative;
+}
+
+.todo-cat__remove-item {
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+}
+
+.todo-cat__paw-img {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 10px;
+    left: calc(50% - 25px);
+}

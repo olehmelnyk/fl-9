@@ -9,7 +9,7 @@ Front-end University Program @ EPAM
 6. [Intro to JS - task 1](https://olehmelnyk.github.io/fl-9/FE_9_6_homework_js-intro/homework/src/task1.html), [Intro to JS - task 2](https://olehmelnyk.github.io/fl-9/FE_9_6_homework_js-intro/homework/src/task2.html)
 7. [Control flow - task 1](https://olehmelnyk.github.io/fl-9/FE_9_7_homework_control-flow/homework/src/task1.html), [Control flow - task 2](https://olehmelnyk.github.io/fl-9/FE_9_7_homework_control-flow/homework/src/task2.html)
 8. [Functions](https://olehmelnyk.github.io/fl-9/FE_9_8_homework_functions/homework/src)
-9. Data types
-10. Scope & Context
-11. DOM
-12. BOM
+9. [Data types](https://olehmelnyk.github.io/fl-9/FE_9_9_homework_data-types/homework/index.html)
+10. [Scope & Context](https://olehmelnyk.github.io/fl-9/FE_9_10_homework_dom/homework/credits_handler.js)
+11. [DOM](https://olehmelnyk.github.io/fl-9/FE_9_11_homework_dom/homework/index.html)
+12. [BOM](https://olehmelnyk.github.io/fl-9/FE_9_12_homework_bom/homework/index.html)
