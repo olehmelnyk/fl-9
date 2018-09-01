@@ -1,6 +1,6 @@
 /********************
-* Helper functions
-********************/
+ * Helper functions
+ ********************/
 
 /**
  * jQuery-like DOM element selector, based on native JS .querySelector() method
@@ -51,12 +51,12 @@ const inputField = $('.todo-cat__add-new-input');
 const addNewItemBtn = $('.todo-cat__add-new-btn');
 const todoList = $('.todo-cat__list');
 
-inputField.onchange = inputField.onkeyup = e => {
+inputField.onchange = inputField.onkeyup = event => {
   const labelText = inputField.value.trim();
 
   addNewItemBtn.disabled = !labelText;
 
-  if (e.code === 'Enter' && labelText) {
+  if (event.code === 'Enter' && labelText) {
     addItem(labelText);
   }
 };
@@ -111,18 +111,21 @@ todoList.addEventListener('dragstart', event => {
 });
 
 todoList.addEventListener('dragover', event => {
-  event.preventDefault();
+  if (event.target.className === 'todo-cat__list-item') {
+    event.preventDefault();
 
-  const bounding = event.target.getBoundingClientRect();
-  const TWO = 2;
-  const offset = bounding.y + bounding.height / TWO;
+    const ZERO_INDEX = 0, HALF = 2;
 
-  if (!!event.clientY - offset) {
-    event.target.style['border-top'] = '';
-    event.target.style['border-bottom'] = '2px dashed #ccc';
-  } else {
-    event.target.style['border-top'] = '2px dashed #ccc';
-    event.target.style['border-bottom'] = '';
+    const bounding = event.target.getBoundingClientRect();
+    const offset = bounding.y + bounding.height / HALF;
+
+    if (event.clientY - offset > ZERO_INDEX) {
+      event.target.style['border-top'] = '';
+      event.target.style['border-bottom'] = '2px dashed #ccc';
+    } else {
+      event.target.style['border-top'] = '2px dashed #ccc';
+      event.target.style['border-bottom'] = '';
+    }
   }
 });
 
@@ -132,17 +135,15 @@ todoList.addEventListener('dragleave', event => {
 });
 
 todoList.addEventListener('drop', event => {
-  event.preventDefault();
+  if (event.target.className === 'todo-cat__list-item') {
+    event.preventDefault();
 
-  try {
-    if (event.target.style['border-bottom'] !== '') {
+    if (event.target.style['border-bottom']) {
       event.target.style['border-bottom'] = '';
       todoList.insertBefore(dragging, event.target.nextSibling);
     } else {
       event.target.style['border-top'] = '';
-      todoList.insertBefore(dragging, event.target.previousSibling);
+      todoList.insertBefore(dragging, event.target);
     }
-  } catch (error) {
-    // Oops! We are trying to drop list item INSIDE of another list item
   }
 });

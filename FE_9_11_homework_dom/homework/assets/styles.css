@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+::placeholder {
+    color: #bbb;
+}
+
 body {
     font-family: Arial, sans-serif;
 }
@@ -12,14 +16,16 @@ button {
     border: 0;
     background: none;
     padding: 0;
-    margin-bottom: 5px;
     cursor: pointer;
     display: flex;
     align-items: center;
 }
 
-::placeholder {
-    color: #bbb;
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 .todo-cat {
@@ -27,8 +33,9 @@ button {
     height: 475px;
     border: 1px solid #000;
     padding: 10px;
-    margin: 30px auto;
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .todo-cat__header {
@@ -42,13 +49,13 @@ button {
 }
 
 .todo-cat__add-new {
+    height: 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 10px;
     border-bottom: 1px solid #000;
     padding: 10px 0;
-    margin-bottom: 10px;
-    height: 40px;
 }
 
 .todo-cat__add-new-input {
@@ -59,10 +66,6 @@ button {
     font-size: 12px;
 }
 
-.todo-cat__add-new-btn {
-    height: 20px;
-}
-
 .todo-cat__list {
     list-style: none;
 }
@@ -71,19 +74,21 @@ button {
     display: flex;
     align-items: center;
     cursor: move;
-    position: relative;
+    margin-bottom: 5px;
 }
 
 .todo-cat__remove-item {
-    position: absolute;
-    right: 0;
-    cursor: pointer;
+    margin-left: auto;
+}
+
+.todo-cat__footer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex: 1;
 }
 
 .todo-cat__paw-img {
     width: 50px;
     height: 50px;
-    position: absolute;
-    bottom: 10px;
-    left: calc(50% - 25px);
 }
