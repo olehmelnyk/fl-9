@@ -8,6 +8,10 @@
     color: #bbb;
 }
 
+[disabled] {
+    cursor: not-allowed;
+}
+
 body {
     font-family: Arial, sans-serif;
 }
