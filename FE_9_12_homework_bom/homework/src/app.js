@@ -188,7 +188,7 @@ const template = {
     };
 
     save.onclick = () => {
-      storage.add(input.value);
+      storage.add(input.value.trim());
       window.location.hash = '/main';
     };
 
