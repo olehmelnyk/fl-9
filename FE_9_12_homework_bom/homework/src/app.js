@@ -208,7 +208,7 @@ const template = {
     section.querySelector('h1').textContent = 'Modify item';
     section.querySelector('input').value = item.description;
     section.querySelector('.save-changes-btn').onclick = () => {
-      storage.changeDescription(item.id, section.querySelector('input').value);
+      storage.changeDescription(item.id, section.querySelector('input').value.trim());
       window.location.hash = '/main';
     };
 
