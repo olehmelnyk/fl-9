@@ -204,7 +204,8 @@ const template = {
 
   modify(item) {
     const section = this.add();
-
+    
+    section.id = 'modify-section';
     section.querySelector('h1').textContent = 'Modify item';
     section.querySelector('input').value = item.description;
     section.querySelector('.save-changes-btn').onclick = () => {
