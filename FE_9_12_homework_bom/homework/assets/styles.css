@@ -79,8 +79,12 @@ button {
 }
 
 .checkbox-done {
-    background-image: url("./img/done-s.png");
+    background-image: url("./img/done-s.png");    
     cursor: not-allowed;
+}
+
+.checkbox-done + .todo-text {
+    background: #bbb;
 }
 
 .todo-text {
