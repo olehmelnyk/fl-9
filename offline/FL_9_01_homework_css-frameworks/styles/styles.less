@@ -1,0 +1,71 @@
+@import "variables";
+
+// background color overrides
+.bg-primary {
+  background-color: @blue !important;
+}
+
+.bg-danger {
+  background-color: @red !important;
+}
+
+.bg-success {
+  background-color: @green !important;
+}
+
+.bg-warning {
+  background-color: @orange !important;
+}
+
+.bg-secondary {
+  background-color: @grey !important;
+}
+
+// border color overrides
+.border-primary {
+  border-color: @blue !important;
+}
+
+.border-danger {
+  border-color: @red !important;
+}
+
+.border-success {
+  border-color: @green !important;
+}
+
+.border-warning {
+  border-color: @orange !important;
+}
+
+// text color overrides
+.text-primary {
+  color: @blue !important;
+}
+
+// navbar active overrides
+.navbar {
+  border-bottom: 1px solid #e7e7e7;
+
+  .nav-link {
+    padding: 10px;
+    color: #000 !important;
+  }
+
+  .active {
+    .nav-link {
+      background-color: @blue;
+      color: #fff !important;
+    }
+  }
+
+  @media (min-width: 992px) {
+    & {
+      padding: 0 1rem;
+    }
+
+    .navbar-nav .nav-link {
+      padding: 15px 20px;
+    }
+  }
+}
