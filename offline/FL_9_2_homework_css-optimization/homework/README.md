@@ -1,11 +1,11 @@
 I've made page audit via Google Chrome DevTools, here are some results:
-Performance: 100%
-First Contentful Paint: 930 ms
-Speed Index: 930 ms
-Time to Interactive: 1110 ms
-First Meaningful Paint: 930 ms
-First CPU Idle: 1110 ms
-Estimated Input Latency: 16 ms
+**Performance: 100%**
+ - First Contentful Paint: 930 ms 
+ - Speed Index: 930 ms 
+ - Time to Interactive: 1110 ms 
+ - First Meaningful Paint: 930 ms 
+ - First CPU Idle: 1110 ms 
+ - Estimated Input Latency: 16 ms
 
 Network tab shows that page loads 10.2KB within ~985ms with cache enabled, and 966KB within ~1.09s with cache disabled - not bad for an image gallery, right? 
 
