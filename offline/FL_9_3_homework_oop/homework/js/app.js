@@ -249,7 +249,7 @@ ${typeof maxCount} '${JSON.stringify(maxCount)}' received.`);
   };
 
   /**
-   * Returns an list of products in format:
+   * Returns a list of products in format:
    * `${name} - is on ${shoppingCartName} from ${dateOfAddingToCart}. Detailed product description: ${productDescription}`
    * @return {string[]}
    */
