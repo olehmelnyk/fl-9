@@ -240,10 +240,10 @@ ${getArgumentInfo(maxCount)} received.`);
       }
     }
 
-    const cheaperstProduct = _products[minIndex];
-    _logs.push(`${cheaperstProduct.name} will be removed to free up space for a new product`);
+    const cheapestProduct = _products[minIndex];
+    _logs.push(`${cheapestProduct.name} will be removed to free up space for a new product`);
 
-    this.removeProduct(cheaperstProduct);
+    this.removeProduct(cheapestProduct);
   };
 
   /**
