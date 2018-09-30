@@ -22,7 +22,18 @@ function isValidString(string) {
  * @returns {boolean}
  */
 function isValidPrice(price) {
-  return typeof price === 'number' && !Number.isNaN(price) && Number.isFinite(price);
+  return typeof price === 'number' && price >= 0 
+    && !Number.isNaN(price) && Number.isFinite(price);
+}
+
+/**
+ * Returns string with type of argument and it's string value in format:
+ * "object '{a: 1, b: 2}'"
+ * @param {*} param 
+ * @returns {string}
+ */
+function getArgumentInfo(param) {
+  return `${typeof param} '${JSON.stringify(param)}'`;
 }
 
 /**
@@ -38,7 +49,7 @@ function Product(name, description, price) {
     this.name = name.trim();
   } else {
     console.error(`Wrong product name argument: expected not an empty string, \
-${typeof name} '${JSON.stringify(name)}' received.`);
+${getArgumentInfo(name)} received.`);
 
     return;
   }
@@ -47,7 +58,7 @@ ${typeof name} '${JSON.stringify(name)}' received.`);
     this.description = description;
   } else {
     console.error(`Wrong product description argument: expected object, \
-${typeof description} '${JSON.stringify(description)}' received.`);
+${getArgumentInfo(description)} received.`);
 
     return;
   }
@@ -56,7 +67,7 @@ ${typeof description} '${JSON.stringify(description)}' received.`);
     this.price = +price.toFixed(2);
   } else {
     console.error(`Wrong product price argument: expected positive number, \
-${typeof price} '${JSON.stringify(price)}' received.`);
+${getArgumentInfo(price)} received.`);
 
     return;
   }
@@ -141,7 +152,7 @@ function ShoppingCart(name, owner, maxCount) {
     this.name = name.trim();
   } else {
     console.error(`Wrong ShoppingCart name argument: expected not an empty string, \
-${typeof name} '${JSON.stringify(name)}' received.`);
+${getArgumentInfo(name)} received.`);
 
     return;
   }
@@ -150,7 +161,7 @@ ${typeof name} '${JSON.stringify(name)}' received.`);
     this.owner = owner.trim();
   } else {
     console.error(`Wrong ShoppingCart owner argument: expected not an empty string, \
-${typeof owner} '${JSON.stringify(owner)}' received.`);
+${getArgumentInfo(owner)} received.`);
 
     return;
   }
@@ -159,7 +170,7 @@ ${typeof owner} '${JSON.stringify(owner)}' received.`);
     this.maxCount = maxCount;
   } else {
     console.error(`Wrong ShoppingCart maxCount argument: expected positive number, \
-${typeof maxCount} '${JSON.stringify(maxCount)}' received.`);
+${getArgumentInfo(maxCount)} received.`);
 
     return;
   }
@@ -175,7 +186,7 @@ ${typeof maxCount} '${JSON.stringify(maxCount)}' received.`);
   this.addNewProduct = function(product) {
     if (product instanceof Product) {
       if (_products.length >= this.maxCount) {
-        this.removeProductWithLowestPrice();
+        this.removeCheapestProduct();
       }
 
       product['dateOfAddingToCart'] = getDate();
@@ -217,9 +228,9 @@ ${typeof maxCount} '${JSON.stringify(maxCount)}' received.`);
   };
 
   /**
-   * Removes product with the lowest price to free some space for a new product
+   * Removes the cheapest product from the cart
    */
-  this.removeProductWithLowestPrice = function() {
+  this.removeCheapestProduct = function() {
     let minIndex = 0, minPrice = _products[0].price;
 
     for (let i = 1; i < _products.length; i++) {
@@ -229,7 +240,10 @@ ${typeof maxCount} '${JSON.stringify(maxCount)}' received.`);
       }
     }
 
-    this.removeProduct(_products[minIndex]);
+    const cheaperstProduct = _products[minIndex];
+    _logs.push(`${cheaperstProduct.name} will be removed to free up space for a new product`);
+
+    this.removeProduct(cheaperstProduct);
   };
 
   /**
