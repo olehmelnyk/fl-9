@@ -1,7 +1,19 @@
 /**
+ * Returns a UUID v4 (used to generate productID)
+ * https://stackoverflow.com/a/2117523/1226226
+ * @return {string} UUIDv4
+ * @example '498988e9-9ffd-4b2a-924c-80fb2fcd3f12'
+ */
+function getUUIDv4() {
+  return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+      (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+  );
+}
+
+/**
  * Returns date and time for history logs
  * @returns {string} date and time
- * @example 29.09.2018, 13:58:19
+ * @example '29.09.2018, 13:58:19'
  */
 function getDate() {
   return new Date().toLocaleString();
@@ -45,8 +57,7 @@ function getArgumentInfo(param) {
  * @constructor
  */
 function Product(name, description, price) {
-
-  const _logs = [];
+  const _logs = [], _productID = getUUIDv4();
   let _price, _productShoppingCart;
 
   if (isValidString(name)) {
@@ -75,6 +86,14 @@ ${getArgumentInfo(price)} received.`);
 
     return;
   }
+
+  /**
+   * Returns a unique product id
+   * @return {string} UUIDv4
+   */
+  this.getProductId = function() {
+    return _productID;
+  };
 
   /**
    * Returns the current product price
@@ -227,7 +246,7 @@ ${getArgumentInfo(maxCount)} received.`);
   this.removeProduct = function(product) {
     if (product instanceof Product) {
       for (let i = 0; i < _products.length; i++) {
-        if (_products[i].name === product.name) {
+        if (_products[i].getProductId() === product.getProductId()) {
           _logs.push(`${product.name} was removed from ${this.name} on ${getDate()}`);
           _products.splice(i, 1);
           product.removeProduct(this);
@@ -306,6 +325,10 @@ Detailed product description: ${JSON.stringify(product.description)}`);
     return _logs;
   };
 }
+
+
+
+
 
 /********************
  *     Code demo
