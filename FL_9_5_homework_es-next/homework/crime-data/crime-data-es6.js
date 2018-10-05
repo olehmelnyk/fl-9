@@ -48,33 +48,15 @@ const crimeDataSource = surname => {
   });
 };
 
-/**
- * => implement loadVictimData here <=
- */
-const loadVictimData = name => new Promise((resolve, reject) => {
-  victimDataSource(name).then(victimData => {
-    crimeDataSource(victimData.surname).then(
-        crimeData => {
+const loadVictimData = name => new Promise(resolve => {
+  victimDataSource(name)
+    .then(victimData => {
+      crimeDataSource(victimData.surname)
+        .then(crimeData => {
           const {name, surname, jobTitle, age} = victimData;
           const {title, place} = crimeData;
-
-          resolve(
-              `${name} ${surname}(${jobTitle}, ${age}) suffered from ${title} in ${place}.`);
-        },
-    );
-  }).catch(() => resolve('Unhandled Promise rejection: unknown victim'));
+          resolve(`${name} ${surname}(${jobTitle}, ${age}) suffered from ${title} in ${place}.`);
+        })
+    })
+  .catch(msg => resolve(`Unhandled Promise rejection: ${msg}`));
 });
-
-/**
- * Output: John Doe(Victim, 99) suffered from dank memes in 9 gag.
- */
-loadVictimData('John').then(msg => console.log(msg));
-/**
- * Output: Jennifer Nicker(Artist, 21) suffered from robbery in NYC.
- */
-loadVictimData('Jennifer').then(msg => console.log(msg));
-/**
- * Output: Unhandled Promise rejection: unknown victim
- * or familiar error msg
- */
-loadVictimData('Jss').then(msg => console.log(msg));

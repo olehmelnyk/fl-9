@@ -18,7 +18,7 @@ run(function* (done) {
   let firstFile;
 
   try {
-    let dirFiles = yield fs.readdir('NoNoNoNo', done); // No such dir
+    let dirFiles = yield fs.readdir('NoNoNoNo', done);
     firstFile = dirFiles[0];
   } catch (error) {
     firstFile = null;
