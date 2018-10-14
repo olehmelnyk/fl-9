@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>FL 9 3 homework AJAX</title>
+</head>
+<body>
+    <h1 id="status" class="status">Water or land?</h1>
+    <div class="wrapper">
+        <div class="from">
+            <input id="latitude" type="number" name="latitude" min="-90" max="90" step="0.00000001" placeholder="Latitude"
+                   required autofocus>
+            <div class="requirements">Latitude must be a number in range between 90 and -90</div>
+
+            <input id="longitude" type="number" name="longitude" min="-180" max="180" step="0.00000001"
+                   placeholder="Longitude" required>
+            <div class="requirements">Longitude must be a number in range between 180 and -180</div>
+
+            <input id="track" type="button" value="Track" disabled>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
