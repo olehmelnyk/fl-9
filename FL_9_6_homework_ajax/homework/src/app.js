@@ -5,9 +5,9 @@ const longitude = document.getElementById('longitude');
 const track = document.getElementById('track');
 
 // Latitude: max/min +90 to -90
-const LATITUDE = 90;
+const LATITUDE_RANGE = 90;
 // Longitude: max/min +180 to -180
-const LONGITUDE = 180;
+const LONGITUDE_RANGE = 180;
 
 // 8 decimal places means 1.11 mm precision
 const GPS_PRECISION = 8;
@@ -39,11 +39,11 @@ const inRange = (value, range) => value <= range && value >= -range;
 const isValidLatitudeLongitude = (latitude, longitude) =>
     typeof latitude === 'number' &&
     typeof longitude === 'number' &&
-    inRange(latitude, LATITUDE) &&
-    inRange(longitude, LONGITUDE);
+    inRange(latitude, LATITUDE_RANGE) &&
+    inRange(longitude, LONGITUDE_RANGE);
 
-const getLatitude = () => +parseFloat(latitude.value).toFixed(8);
-const getLongitude = () => +parseFloat(longitude.value).toFixed(8);
+const getLatitude = () => +parseFloat(latitude.value).toFixed(GPS_PRECISION);
+const getLongitude = () => +parseFloat(longitude.value).toFixed(GPS_PRECISION);
 
 const sendRequest = () => {
   if (isValidLatitudeLongitude(getLatitude(), getLongitude())) {
@@ -91,7 +91,7 @@ const waterOrLand = (latitude, longitude) => {
       });
 };
 
-latitude.onchange = longitude.onchange = latitude.onkeyup = longitude.onkeyup = (event) => {
+latitude.onchange = longitude.onchange = latitude.onkeyup = longitude.onkeyup = event => {
   if (isValidLatitudeLongitude(getLatitude(), getLongitude())) {
     track.disabled = false;
 
