@@ -1,0 +1,337 @@
+/* Base Styles */
+
+:root {
+    font-size: 10px;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    background-color: #fafafa;
+    color: #262626;
+    padding-bottom: 3rem;
+}
+
+img {
+    display: block;
+}
+
+button {
+    user-select: none;
+    white-space: nowrap;
+    width: auto;
+    text-transform: inherit;
+    text-overflow: ellipsis;
+    border: 0;
+    outline: 0;
+    padding: 0;
+    background: transparent;
+}
+
+button:hover {
+    cursor: pointer;
+    opacity: .7;
+}
+
+a, a:visited {
+    color: #3897f0;
+    text-decoration: none;
+}
+
+a:hover {
+    opacity: .7;
+}
+
+.container {
+    max-width: 93.5rem;
+    margin: 100px auto;
+    padding: 0 2rem;
+}
+
+.visually-hidden {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+/* Gallery Section */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -1rem -1rem;
+    padding-bottom: 3rem;
+}
+
+.gallery-item {
+    position: relative;
+    flex: 1 0 22rem;
+    margin: 1rem;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+}
+
+.gallery-item:hover .gallery-item-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.gallery-item-info {
+    display: none;
+}
+
+.gallery-item-info ul {
+    padding: 0;
+}
+
+.gallery-item-info li {
+    display: inline-block;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 2rem;
+}
+
+.gallery-item-likes {
+    margin-right: 2.2rem;
+}
+
+.gallery-image {
+    width: 100%;
+    height: 100%;
+    max-height: 285px;
+    max-width: 285px;
+    object-fit: cover;
+}
+
+.gallery-image:before {
+    content: '';
+    display: block;
+}
+
+/* sprite icons */
+.icon {
+    background-image: url('../img/icons.png');
+    display: inline-block;
+}
+
+.heart, .comment {
+    width: 20px;
+    height: 20px;
+}
+
+.heart {
+    background-position:  0 0;
+}
+
+.comment {
+    background-position: 38px 0;
+}
+
+/* gallery slider */
+.gallery-slider-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.75);
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery-close {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    color: #fff;
+    font-size: 36px;
+}
+
+.gallery-slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery-prev, .gallery-next {
+    width: 16px;
+    height: 26px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.gallery-prev {
+    background-position: 16px -26px;
+    margin: 7px 12px;
+    order: 1;
+}
+
+.gallery-next {
+    background-position: 0 -26px;
+    margin: 7px 12px;
+    order: 3;
+}
+
+.gallery-content {
+    display: flex;
+    min-height: 450px;
+    max-height: 600px;
+    order: 2;
+}
+
+.gallery-slider-image-wrapper {
+    background-color: #000;
+    min-height: 450px;
+    max-height: 600px;
+    width: 600px;
+    max-width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery-slider-image {
+    background: #fff;
+    width: 100%;
+    height: auto;
+    max-height: 600px;
+}
+
+.gallery-meta {
+    width: 295px;
+    min-height: 450px;
+    max-height: 600px;
+    height: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+}
+
+.gallery-meta-header {
+    border-bottom: 1px solid #efefef;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: gray;
+    margin-right: 10px;
+}
+
+.user-name {
+    color: #262626;
+    text-decoration: none;
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.user-name:after {
+    content: '•';
+    padding: 0 5px;
+}
+
+.follow {
+    font-size: 14px;
+    line-height: 18px;
+    color: #3897f0;
+    display: inline;
+    font-weight: 600;
+}
+
+.location {
+    font-size: 12px;
+    display: block;
+}
+
+.gallery-meta-main {
+    font-size: 14px;
+    line-height: 18px;
+    flex: 1;
+    overflow: auto;
+    margin: 0 -20px 20px 0;
+    padding-right: 20px;
+}
+
+.gallery-meta-likes {
+    color: #262626;
+    background-color: transparent;
+    border: 0;
+    display: inline;
+    padding: 0;
+    font-weight: 600;
+    text-transform: inherit;
+    text-overflow: ellipsis;
+    user-select: none;
+    white-space: nowrap;
+    width: auto;
+}
+
+.gallery-add-comment {
+    background: transparent;
+    color: #262626;
+    border: 0;
+    outline: 0;
+    font-size: inherit;
+    line-height: 18px;
+    min-height: 18px;
+    max-height: 80px;
+    width: 90%;
+    padding-top: 20px;
+    margin: 10px 0 -20px 0 !important;
+    resize: none;
+    border-top: 1px solid #efefef;
+}
+
+.view-more {
+    font-size: 14px;
+    line-height: 18px;
+    color: #3897f0;
+    display: block;
+    font-weight: 600;
+    margin: 0 auto;
+}
+
+/*
+The following code will only run if your browser supports CSS grid.
+Remove or comment-out the code block below to see how the browser will fall-back to flexbox & floated styling.
+*/
+@supports (display: grid) {
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+        grid-gap: 2rem;
+    }
+
+    .gallery-item,
+    .gallery {
+        width: auto;
+        margin: 0;
+    }
+}

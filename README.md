@@ -7,7 +7,7 @@ Front-end University Program @ EPAM
 4. [Inheritance](https://olehmelnyk.github.io/fl-9/FL_9_4_homework_inheritance/homework)
 5. [ES Next](https://olehmelnyk.github.io/fl-9/FL_9_5_homework_es-next/homework)
 6. [AJAX](https://olehmelnyk.github.io/fl-9/FL_9_6_homework_ajax/homework/src)
-7. [jQuery](https://olehmelnyk.github.io/fl-9/FL_9_7_homework_jquery/homework)
+7. [jQuery](https://olehmelnyk.github.io/fl-9/FL_9_7_homework_jquery/homework/src)
 8. [NodeJS / ExpressJS](https://olehmelnyk.github.io/fl-9/FL_9_8_homework_node-js/homework)
 9. [Tools](https://olehmelnyk.github.io/fl-9/FL_9_9_homework_tools/homework)
 10. [JS Patterns](https://olehmelnyk.github.io/fl-9/FL_9_10_homework_js-patterns/homework)
